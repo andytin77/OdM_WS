@@ -1,0 +1,10 @@
+#! /bin/bash
+
+
+
+
+vrontab -r 
+crontab -l | { cat; echo "*/3 * * * * cd /home/pi/ && ./vedirect.sh> /dev/null 2>&1" 
+cd /home/pi/swpi 
+logfile=./log/log`date '+%d%m%Y'`.log 
+sudo python -u swpi.py | tee -a $logfile 
